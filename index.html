@@ -1,93 +1,243 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>TP-1: Funciones en JavaScript</title>
+	<title>Listas javascript</title>
 </head>
 <body>
 <p>Completar con la implementación de las funciones correspondientes</p>
 <script type="text/javascript">
-// Numeros
+var listaNumerosEjemplo = [2,4,6,-1,5,-4,0];
 
-// Implementar una función "suma" que retorne la suma de 2 numeros
-// ejemplo: suma(2,3) retorna 5
 
-function suma(num1, num2) {
-    // return num1 + num2;
+/**
+ * Recibe
+ * - `listaDeNumeros`: una lista (array) de números.
+ * 
+ * Retorna: 
+ * - una lista de números con los mismos elementos pero en orden inverso al que fueron recibidos.
+ * 
+ * Ejemplos:
+ * - invertirLista([2,3,4]) retorna [4,3,2]
+ */function invertirLista(listaDeNumeros) {
+  // Creamos una nueva lista vacía para almacenar los elementos en orden inverso.
+  var listaInvertida = [];
+  
+  // Recorremos la lista de números desde el último elemento hasta el primero.
+  for (var i = listaDeNumeros.length - 1; i >= 0; i--) {
+    // Agregamos cada elemento a la nueva lista.
+    listaInvertida.push(listaDeNumeros[i]);
+  }
+  
+  // Retornamos la lista invertida.
+  return listaInvertida;
 }
 
-console.log("suma(2,3): ", suma(2,3))
+console.log("invertirLista([2,3,4]): ", invertirLista([2,3,4]));
+console.log("invertirLista(listaNumerosEjemplo): ", invertirLista(listaNumerosEjemplo));
 
 
-// Implementar una función "elevarAlCubo" que eleve al cubo un numero
-// ejemplo: elevarAlCubo(3) retorna 27
-
-console.log("elevarAlCubo(3): ", elevarAlCubo(3))
-
-// Implementar una función "restoDivisionEntera" para devolver el resto de una división entera entre un dividendo y un divisor
-// ejemplo: restoDivisionEntera(3,2) retorna 1
-
-console.log("restoDivisionEntera(3,2): ", restoDivisionEntera(3,2))
 
 
-// Implementar una función "numeroPi" para devolver el numero PI
-// ejemplo: numeroPi() retorna 3,14...
+/**
+ * Recibe
+ * - `listaDeNumeros`: una lista (array) de números.
+ * 
+ * Retorna: 
+ * - un numero, con el valor calculado de promedio para los números en la lista recibida.
+ * 
+ * Ejemplos:
+ * - calcularPromedio([2,3,4]) retorna 3
+ */
 
-console.log("numeroPi(): ", numeroPi())
+ function calcularPromedio(listaDeNumeros) {
+  // Verificamos si la lista está vacía para evitar la división por cero.
+  if (listaDeNumeros.length === 0) {
+    return 0; // Devolvemos 0 si la lista está vacía.
+  }
+
+  // Sumamos todos los números en la lista.
+  var suma = 0;
+  for (var i = 0; i < listaDeNumeros.length; i++) {
+    suma += listaDeNumeros[i];
+  }
+
+  // Calculamos el promedio dividiendo la suma entre la cantidad de números.
+  var promedio = suma / listaDeNumeros.length;
+
+  return promedio;
+}
+
+console.log("calcularPromedio([10,10,10]): ", calcularPromedio([10,10,10]));
+console.log("calcularPromedio(listaNumerosEjemplo): ", calcularPromedio(listaNumerosEjemplo));
+
+/**
+ * Recibe
+ * - `inicio`: un número, con el valor inicial de la lista
+ * - `fin`: un número, con el valor final de la lista
+ * 
+ * Retorna: 
+ * - una lista (array) con valores numéricos en secuencia, desde `inicio` hasta `fin`.
+ * 
+ * Ejemplos:
+ * - crearListaDeNumeros(1,5) retorna [1,2,3,4,5]
+ * - crearListaDeNumeros(3,6) retorna [3,4,5,6]
+ * - crearListaDeNumeros(2,2) retorna [2]
+ */
+ function crearListaDeNumeros(inicio, fin) {
+  // Verificamos si `inicio` es mayor que `fin` y manejamos este caso.
+  if (inicio > fin) {
+    return [];
+  }
+
+  // Creamos una nueva lista vacía para almacenar la secuencia de números.
+  var lista = [];
+
+  // Usamos un bucle for para generar la secuencia de números.
+  for (var i = inicio; i <= fin; i++) {
+    lista.push(i);
+  }
+
+  return lista;
+}
+
+console.log("crearListaDeNumeros(1,10): ", crearListaDeNumeros(1,10));
+console.log("crearListaDeNumeros(1,5): ", crearListaDeNumeros(1,5));
+console.log("crearListaDeNumeros(3,6): ", crearListaDeNumeros(3,6));
+console.log("crearListaDeNumeros(2,2): ", crearListaDeNumeros(2,2));
 
 
-// Implementar una función "numeroRandom" para devolver un número random / aleatorio
-// ejemplo: numeroRandom() retorna 0,123...
-
-console.log("numeroRandom(): ", numeroRandom())
-
-
-// Implementar una función "mejorNumeroRandom" para devolver un número random entre 2 valores recibidos como parámetros
-// ejemplo: mejorNumeroRandom(1,6) retorna 3
-
-console.log("mejorNumeroRandom(1,6): ", mejorNumeroRandom(1,6))
-
-
-// Cadenas de Caracteres
-
-// Implementar una función "transformarMayuscula" que transforme a mayúscula la palabra recibida como parámetro
-// ejemplo: transformarMayuscula("Plataformas Móviles") retorna "PLATAFORMAS MÓVILES"
-
-console.log("transformarMayuscula(\"Plataformas Móviles\"): ", transformarMayuscula("Plataformas Móviles"))
+/**
+ * Recibe
+ * - `listaDeNumeros`: una lista (array) de números.
+ * 
+ * Retorna: 
+ * - una lista de números con los mismos elementos pero en orden decreciente (de mayor a menor).
+ * 
+ * Ejemplos:
+ * - ordenarDeMayorAMenor([2,-1,4]) retorna [4,2,-1]
+ */
+function ordenarDeMayorAMenor(listaDeNumeros) {
+    //
+}
+console.log("ordenarDeMayorAMenor([2,3,4]): ", ordenarDeMayorAMenor([2,3,4]))
+console.log("ordenarDeMayorAMenor(listaNumerosEjemplo): ", ordenarDeMayorAMenor(listaNumerosEjemplo))
 
 
-// Implementar una función "primeraLetra" que nos devuelva la inicial de la palabra recibida como parámetro
-// ejemplo: primeraLetra("Plataformas") retorna "P"
+/**
+ * Recibe
+ * - `listaDeNumeros`: una lista (array) de números.
+ * 
+ * Retorna: 
+ * - un numero, con el valor del numero más grande contenido en la lista recibida.
+ * 
+ * Ejemplos:
+ * - encontrarNumeroMayor([2,3,4]) retorna 4
+ */
+function encontrarNumeroMayor(listaDeNumeros) {
+    //
+}
+console.log("encontrarNumeroMayor([2,3,4]): ", encontrarNumeroMayor([2,3,4]))
+console.log("encontrarNumeroMayor(listaNumerosEjemplo): ", encontrarNumeroMayor(listaNumerosEjemplo))
 
-console.log("primeraLetra(\"Plataformas\"): ", primeraLetra("Plataformas"))
+
+/**
+ * Recibe
+ * - `listaDePalabras`: una lista (array) de palabras (string).
+ * 
+ * Retorna: 
+ * - una lista (array) de palabras (string), con los mismos valores que la lista recibida pero ordenados de manera creciente de acuerdo a su cantidad de caracteres.
+ * 
+ * Ejemplos:
+ * - ordenarPalabrasPorLongitud(['abc', 'a', 'ab']) retorna ['a', 'ab', 'abc']
+ */
+function ordenarPalabrasPorLongitud(listaDePalabras) {
+    //
+}
+console.log("ordenarPalabrasPorLongitud(['abc', 'a', 'ab']): ", ordenarPalabrasPorLongitud(['abc', 'a', 'ab']))
 
 
-// Implementar una función "ultimaLetra" que nos devuelva la letra final la palabra recibida como parámetro
-// ejemplo: ultimaLetra("Plataformas") retorna "s"
+/**
+ * Recibe
+ * - `listaDePalabras`: una lista (array) de palabras (string).
+ * 
+ * Retorna: 
+ * - una palabras (string) que dentro del listado tenga la menor cantidad de caracteres de longitud. En caso de que haya varias palabras con la misma longitud, se puede devolver la primera encontrada.
+ * 
+ * Ejemplos:
+ * - encontrarPalabraMasCorta(['abc', 'a', 'ab', 'c']) retorna 'a'
+ */
+function encontrarPalabraMasCorta(listaDePalabras) {
+    //
+}
+console.log("encontrarPalabraMasCorta(['abc', 'a', 'ab']): ", encontrarPalabraMasCorta(['abc', 'a', 'ab']))
 
-console.log("ultimaLetra(\"Plataformas\"): ", ultimaLetra("Plataformas"))
+
+/**
+ * Recibe
+ * - `listaDeNumeros`: una lista (array) de números.
+ * 
+ * Retorna: 
+ * - una lista (array) de números, conteniendo sólo los valores positivos de la lista de números recibida.
+ * 
+ * Ejemplos:
+ * - filtrarSoloPositivos([1,-1,2]) retorna [1,2]
+ */
+function filtrarSoloPositivos(listaDeNumeros) {
+    //
+}
+console.log("filtrarSoloPositivos([1,-1,0]): ", filtrarSoloPositivos([1,-1,0]))
+console.log("filtrarSoloPositivos(listaNumerosEjemplo): ", filtrarSoloPositivos(listaNumerosEjemplo))
 
 
-// Implementar una función "primeraLetraMayuscula" que devuelve la palabra original con su primera letra en mayúscula
-// ejemplo: primeraLetraMayuscula("plataformas") retorna "Plataformas"
+/**
+ * Recibe
+ * - `listaDeNotas`: una lista (array) de números con valores entre 1 y 10.
+ * 
+ * Retorna: 
+ * - un numero, con la cantidad de notas que superan el criterio de aprobación.
+ * 
+ * Ejemplos:
+ * - contarAprobados([10,2,9]) retorna 2
+ */
+function contarAprobados(listaDeNotas) {
+    //
+}
+console.log("contarAprobados([10, 4, 6, 7, 1, 9]): ", contarAprobados([10, 4, 6, 7, 1, 9]))
 
-console.log("primeraLetraMayuscula(\"plataformas\"): ", primeraLetraMayuscula("plataformas"))
 
-// Implementar una función "palabraAListaDeLetras" que dada una palabra me retorne un listado de sus letras
-// ejemplo: palabraAListaDeLetras("hola") retorna ['h', 'o', 'l', 'a'];
+/**
+ * Recibe
+ * - `listaDeValores`: una lista (array) de valores de distintos tipos.
+ * 
+ * Retorna: 
+ * - una lista (array) conteniendo sólo los valores que son considerados 'truthy' por el lenguaje JavaScript
+ * 
+ * Ejemplos:
+ * - filtrarSoloTruthy(["Hola", "", 0, 1]) retorna ["Hola", 1]
+ */
+function filtrarSoloTruthy(listaDeValores) {
+    // 
+}
+console.log("filtrarSoloTruthy(): ", filtrarSoloTruthy(["Hola", "", null, 1, 0, -1, undefined, [], {}]))
 
-console.log("palabraAListaDeLetras(\"hola\"): ", palabraAListaDeLetras("hola"))
-
-// Implementar una función "listaDeLetrasAPalabra" que dado un listado de letras, devuelva una palabra
-// ejemplo: listadoDeLetrasAPalabra(["h", "o", "l", "a"]) retorna "hola";
-
-console.log("listadoDeLetrasAPalabra([\"h\", \"o\", \"l\", \"a\"]): ", listadoDeLetrasAPalabra(["h", "o", "l", "a"]))
-
-// Implementar una función "palabraInvertida" que devuelva la palabra invertida
-// ejemplo: palabraInvertida("hola") retorna "aloh";
-
-console.log("palabraInvertida(\"hola\"): ", palabraInvertida("hola"))
+/**
+ * Recibe
+ * - `listaDePalabras`: una lista (array) de palabras (strings).
+ * 
+ * Retorna: 
+ * - Una oración (string), donde se enumeran cada una de las palabras recibidas en la lista.
+ * - Bonus: una oración correctamente formada debería empezar en mayúscula, terminar con punto, y además el ultimo elemento de enumeración deberia estar separado con "y".
+ * 
+ * Ejemplos:
+ * - enumerarLista(["Han", "Leia", "Luke", "Yoda"]) "Han, Leia, Luke y Yoda."
+ */
+function enumerarLista(listaDePalabras) {
+    //
+}
+console.log("enumerarLista(): ", enumerarLista(["Han", "Leia", "Luke", "Yoda"]))
 
 </script>
 </body>
